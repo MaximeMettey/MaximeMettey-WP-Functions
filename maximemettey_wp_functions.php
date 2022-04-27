@@ -1,6 +1,7 @@
 <?php
 /**
- * The custom functions written specifically for Maxime Mettey's projects
+ * The custom functions written specifically for Maxime Mettey's WordPress projects
+ * Include this file into your custom/child theme's functions.php
  * 
  * @author Maxime Mettey <contact@maxime-mettey.com>
  * @see https://www.maxime-mettey.com
