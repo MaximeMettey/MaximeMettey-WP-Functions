@@ -33,11 +33,11 @@
  * @see https://wpformation.com/snippets-wordpress/
  * @return string                   Generic error message
  */
-function no_wordpress_errors()
+function no_wordpress_errors_on_login()
 {
     return __('Login error.');
 }
-add_filter('login_errors', 'no_wordpress_errors');
+add_filter('login_errors', 'no_wordpress_errors_on_login');
 
 /**
  * Protect site from malicious requests
@@ -70,7 +70,7 @@ if ($user_ID) {
 add_filter('xmlrpc_enabled', '__return_false');
 
 /**
- * Hide edit post link when the user is loggged in, because it is annoying
+ * Hide edit post link when the user is loggged in
  * 
  * @since 1.0.0
  * @return bool                     Always False
@@ -137,7 +137,7 @@ remove_action('welcome_panel', 'wp_welcome_panel');
  * Automatically format and generate the "tel" link for <a> tags
  * 
  * @since 1.0.0
- * @param mixed $phoneNumber        The phone number to format
+ * @param string $phoneNumber       The phone number to format
  * @return string                   "tel" link/href formatted
  */
 function telLink(string $phoneNumber)
