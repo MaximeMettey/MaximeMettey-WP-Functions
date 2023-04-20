@@ -21,9 +21,14 @@ How to use
 * Duplicate the file maximemettey_wp_functions.php in your child / custom Wordpress theme
 * include this new file into functions.php file of your theme with
 
-..  code-block:: <language>
-    :caption: <caption>
+..  code-block:: PHP
+    :caption: test
     :linenos:
-    :lineno-start: <start-number>
-    :emphasize-lines: <emphasized-line-numbers>
-    :name: <reference-label>
+    :lineno-start: 10
+    :emphasize-lines: 32
+    :name: maximemettey_wp_functions.php
+    
+    function test()
+    {
+        echo 'ok';
+    }
