@@ -31,7 +31,9 @@ GNU GPL
 
 ### Security snippets
 
-Snippet n°1 : Disable login error messages to prevent hackers from finding informations using brute-force attacks on the login page.
+**Snippet n°1 :**
+
+Disable login error messages to prevent hackers from finding informations using brute-force attacks on the login page.
 
 ```
 function no_wordpress_errors_on_login()
@@ -41,7 +43,9 @@ function no_wordpress_errors_on_login()
 add_filter('login_errors', 'no_wordpress_errors_on_login');
 ```
 
-Snippet n°2 : Automatically reject suspicious requests.
+**Snippet n°2 :**
+
+Automatically reject suspicious requests.
 
 ```
 global $user_ID;
@@ -63,7 +67,9 @@ if ($user_ID) {
 }
 ```
 
-Snippet n°3 : Disable XML RPC protocol from Wordpress. If you do not need it, it is safer.
+**Snippet n°3 :**
+
+Disable XML RPC protocol from Wordpress. If you do not need it, it is safer.
 
 ```
 add_filter('xmlrpc_enabled', '__return_false');
@@ -73,13 +79,17 @@ add_filter('xmlrpc_enabled', '__return_false');
 
 ### Performance snippets
 
-Snippet n°1 : Automatic empty trash after five days - You can adjust this number if needed.
+**Snippet n°1 :**
+
+Automatic empty trash after five days - You can adjust this number if needed.
 
 ```
 define('EMPTY_TRASH_DAYS', 5);
 ```
 
-Snippet n°2 : Limit post revisions to five - You can adjust this number if needed.
+**Snippet n°2 :**
+
+Limit post revisions to five - You can adjust this number if needed.
 
 ```
 define('WP_POST_REVISIONS', 5);
@@ -90,6 +100,7 @@ define('WP_POST_REVISIONS', 5);
 ### Useful and time saving snippets
 
 **Snippet n°1 :**  
+
 Hide edit post link on the front. THis prevents your design from breaking when you are logged in.
 
 ```
@@ -102,7 +113,7 @@ add_filter('edit_post_link', 'hide_edit_post_link', 999, 3);
 
 **Snippet n°2 :**  
 
-Disable Wordpress dashboard welcome panel
+Disable Wordpress dashboard welcome panel.
 
 ```
 remove_action('welcome_panel', 'wp_welcome_panel');
