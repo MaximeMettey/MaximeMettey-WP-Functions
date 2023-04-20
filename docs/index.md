@@ -18,7 +18,9 @@ GNU GPL
 1. Copy the file `maximemettey_wp_functions.php`
 2. Paste it in your child / custom Wordpress theme folder [WordpressRootFolder]/wp-content/themes/[YourTheme]/
 3. Add this code at the end of the `functions.php` file in your theme folder :   
-`require 'maximemettey_wp_functions.php';`
+```
+require 'maximemettey_wp_functions.php';
+```
 
 *N.B. : You can also just copy the snippets you want to use, and paste them in your own code.*
 
