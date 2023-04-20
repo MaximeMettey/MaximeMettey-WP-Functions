@@ -35,11 +35,31 @@ function no_wordpress_errors_on_login()
 add_filter('login_errors', 'no_wordpress_errors_on_login');
 ```
 
-    Disable login error messages to prevent hackers from finding informations using brute-force attacks on the login page.
+Purpose : Disable login error messages to prevent hackers from finding informations using brute-force attacks on the login page.
 
-**2. Protect site from maliciours requests **
+---
 
-    Automatically reject suspicious requests.
+```
+global $user_ID;
+if ($user_ID) {
+    if (!current_user_can('administrator')) {
+        if (
+            strlen($_SERVER['REQUEST_URI']) > 255 ||
+            stripos($_SERVER['REQUEST_URI'], "eval(") ||
+            stripos($_SERVER['REQUEST_URI'], "CONCAT") ||
+            stripos($_SERVER['REQUEST_URI'], "UNION+SELECT") ||
+            stripos($_SERVER['REQUEST_URI'], "base64")
+        ) {
+            @header("HTTP/1.1 414 Request-URI Too Long");
+            @header("Status: 414 Request-URI Too Long");
+            @header("Connection: Close");
+            @exit;
+        }
+    }
+}
+```
+
+Purpose : Automatically reject suspicious requests.
     
 3. Disable XML RPC protocol
 
