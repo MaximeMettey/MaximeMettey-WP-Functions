@@ -70,24 +70,6 @@ if ($user_ID) {
 add_filter('xmlrpc_enabled', '__return_false');
 
 /**
- * Hide edit post link when the user is loggged in
- * 
- * @since 1.0.0
- * @return bool                     Always False
- */
-function hide_edit_post_link()
-{
-    return false;
-}
-add_filter('edit_post_link', 'hide_edit_post_link', 999, 3);
-
-/**
- * --------------------------------
- * --- END OF SECURITY SNIPPETS ---
- * --------------------------------
- */
-
-/**
  * ----------------------------
  * --- PERFORMANCE SNIPPETS ---
  * ----------------------------
@@ -112,20 +94,24 @@ define('EMPTY_TRASH_DAYS', 5);
 define('WP_POST_REVISIONS', 5);
 
 /**
- * -----------------------------------
- * --- END OF PERFORMANCE SNIPPETS ---
- * -----------------------------------
- */
-
-/**
  * ---------------------------------------
  * --- USEFUL AND TIME SAVING SNIPPETS ---
  * ---------------------------------------
  */
+/**
+ * Hide edit post link when the user is loggged in
+ * 
+ * @since 1.0.0
+ * @return bool                     Always False
+ */
+function hide_edit_post_link()
+{
+    return false;
+}
+add_filter('edit_post_link', 'hide_edit_post_link', 999, 3);
 
 /**
- * Disable WordPress dashboard welcome panel - Because
- * it is useless and annoying
+ * Disable WordPress dashboard welcome panel
  * 
  * @since 1.0.0
  * @see https://wpformation.com/snippets-wordpress/
