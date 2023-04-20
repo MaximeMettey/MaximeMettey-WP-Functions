@@ -18,7 +18,7 @@ GNU GPL
 1. Copy the file `maximemettey_wp_functions.php`
 2. Paste it in your child / custom Wordpress theme folder [WordpressRootFolder]/wp-content/themes/[YourTheme]/
 3. Add this code at the end of the `functions.php` file in your theme folder :   
-```
+```php
 require 'maximemettey_wp_functions.php';
 ```
 
@@ -36,7 +36,7 @@ require 'maximemettey_wp_functions.php';
 
 Disable login error messages to prevent hackers from finding informations using brute-force attacks on the login page.
 
-```
+```php
 function no_wordpress_errors_on_login()
 {
     return __('Login error.');
@@ -48,7 +48,7 @@ add_filter('login_errors', 'no_wordpress_errors_on_login');
 
 Automatically reject suspicious requests.
 
-```
+```php
 global $user_ID;
 if ($user_ID) {
     if (!current_user_can('administrator')) {
@@ -72,7 +72,7 @@ if ($user_ID) {
 
 Disable XML RPC protocol from Wordpress. If you do not need it, it is safer.
 
-```
+```php
 add_filter('xmlrpc_enabled', '__return_false');
 ```
 
@@ -84,7 +84,7 @@ add_filter('xmlrpc_enabled', '__return_false');
 
 Automatic empty trash after five days - You can adjust this number if needed.
 
-```
+```php
 define('EMPTY_TRASH_DAYS', 5);
 ```
 
@@ -92,7 +92,7 @@ define('EMPTY_TRASH_DAYS', 5);
 
 Limit post revisions to five - You can adjust this number if needed.
 
-```
+```php
 define('WP_POST_REVISIONS', 5);
 ```
 
@@ -104,7 +104,7 @@ define('WP_POST_REVISIONS', 5);
 
 Hide edit post link on the front. THis prevents your design from breaking when you are logged in.
 
-```
+```php
 function hide_edit_post_link()
 {
     return false;
@@ -116,7 +116,7 @@ add_filter('edit_post_link', 'hide_edit_post_link', 999, 3);
 
 Disable Wordpress dashboard welcome panel.
 
-```
+```php
 remove_action('welcome_panel', 'wp_welcome_panel');
 ```
 
@@ -124,7 +124,7 @@ remove_action('welcome_panel', 'wp_welcome_panel');
 
 Automatically format and generate the "tel" link for link tags
 
-```
+```php
 function telLink(string $phoneNumber)
 {
     return 'tel:' . str_replace([' ', '(0)'], '', $phoneNumber);
@@ -137,7 +137,7 @@ function telLink(string $phoneNumber)
 1. Get the link title in the link array
 2. Get the post's by URL
 
-```
+```php
 function get_link_title_from_acf_array($link)
 {
     $smtitle = $link['lien']['title'];
@@ -157,7 +157,7 @@ function get_link_title_from_acf_array($link)
 
 **Only useful for the Advanced Custom Fields plugin users.** Automatically generates a link tag for an ACF link field.
 
-```
+```php
 function generate_link_tag_from_acf_array($link, $class = '')
 {
     return '
