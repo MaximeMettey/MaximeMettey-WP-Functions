@@ -27,11 +27,17 @@ GNU GPL
 
 ## List of functions and snippets available
 
-1. no_wordpress_errors_on_login
+```
+function no_wordpress_errors_on_login()
+{
+    return __('Login error.');
+}
+add_filter('login_errors', 'no_wordpress_errors_on_login');
+```
 
     Disable login error messages to prevent hackers from finding informations using brute-force attacks on the login page.
 
-2. Protect site from maliciours requests
+**2. Protect site from maliciours requests **
 
     Automatically reject suspicious requests.
     
