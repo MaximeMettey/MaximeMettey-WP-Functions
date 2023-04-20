@@ -21,9 +21,11 @@ GNU GPL
 3. Add this code at the end of the `functions.php` file in your theme folder :   
 `require 'maximemettey_wp_functions.php';`
 
+*N.B. : You can also just copy the snippets you want to use, and paste them in your own code.*
+
 ## Project layout
 
-    maximemettey_wp_functions.php    # The one and only file to import
+- maximemettey_wp_functions.php
 
 ## List of functions and snippets available
 
@@ -63,7 +65,9 @@ if ($user_ID) {
 
 Snippet n°3 : Disable XML RPC protocol from Wordpress. If you do not need it, it is safer.
 
-`add_filter('xmlrpc_enabled', '__return_false');`
+```
+add_filter('xmlrpc_enabled', '__return_false');
+```
 
 ---
 
@@ -71,17 +75,22 @@ Snippet n°3 : Disable XML RPC protocol from Wordpress. If you do not need it, i
 
 Snippet n°1 : Automatic empty trash after five days - You can adjust this number if needed.
 
-`define('EMPTY_TRASH_DAYS', 5);`
+```
+define('EMPTY_TRASH_DAYS', 5);
+```
 
 Snippet n°2 : Limit post revisions to five - You can adjust this number if needed.
 
-`define('WP_POST_REVISIONS', 5);`
+```
+define('WP_POST_REVISIONS', 5);
+```
 
 ---
 
 ### Useful and time saving snippets
 
-Snippet n°1 : Hide edit post link on the front. THis prevents your design from breaking when you are logged in.
+**Snippet n°1 :**  
+Hide edit post link on the front. THis prevents your design from breaking when you are logged in.
 
 ```
 function hide_edit_post_link()
@@ -91,11 +100,17 @@ function hide_edit_post_link()
 add_filter('edit_post_link', 'hide_edit_post_link', 999, 3);
 ```
 
-Snippet n°2 : Disable Wordpress dashboard welcome panel
+**Snippet n°2 :**  
 
-`remove_action('welcome_panel', 'wp_welcome_panel');`
+Disable Wordpress dashboard welcome panel
 
-Snippet n°3 : Automatically format and generate the "tel" link for link tags
+```
+remove_action('welcome_panel', 'wp_welcome_panel');
+```
+
+**Snippet n°3 :**  
+
+Automatically format and generate the "tel" link for link tags
 
 ```
 function telLink(string $phoneNumber)
@@ -103,3 +118,11 @@ function telLink(string $phoneNumber)
     return 'tel:' . str_replace([' ', '(0)'], '', $phoneNumber);
 }
 ```
+
+**Snippet n°4 :**  
+
+Only useful for the Advanced Custom Fields plugin users
+ * Automatically generate the link title for an ACF link field.
+ * By order of priority :
+ *      1. Get the link title in the link array
+ *      2. Get the title of the post by URL
