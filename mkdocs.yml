@@ -1,10 +1,10 @@
-site_name: MkDocs
-site_url: https://www.mkdocs.org/
-site_description: Project documentation with Markdown.
-site_author: MkDocs Team
+site_name: WP Functions & Snippets
+site_url: https://www.maxime-mettey.com/
+site_description: AUthor website
+site_author: Maxime Mettey
 
 repo_url: https://github.com/MaximeMettey/MaximeMettey-WP-Functions
-edit_uri: blob/master/docs/
+edit_uri: blob/main/docs/
 
 theme:
     name: mkdocs
