@@ -3,13 +3,12 @@ site_url: https://www.mkdocs.org/
 site_description: Project documentation with Markdown.
 site_author: MkDocs Team
 
-repo_url: https://github.com/mkdocs/mkdocs/
+repo_url: https://github.com/MaximeMettey/MaximeMettey-WP-Functions
 edit_uri: blob/master/docs/
 
 theme:
     name: mkdocs
     locale: en
-    analytics: {gtag: 'G-274394082'}
     highlightjs: true
     hljs_languages:
         - yaml
@@ -17,16 +16,6 @@ theme:
 
 nav:
     - Home: index.md
-    - Getting Started: getting-started.md
-    - User Guide: user-guide/
-    - Developer Guide: dev-guide/
-    - About:
-        - Release Notes: about/release-notes.md
-        - Contributing: about/contributing.md
-        - License: about/license.md
-
-extra_css:
-    - css/extra.css
 
 markdown_extensions:
     - toc:
@@ -44,7 +33,7 @@ markdown_extensions:
         repo: mkdocs
     - mkdocs-click
 
-copyright: Copyright &copy; 2014 <a href="https://twitter.com/_tomchristie">Tom Christie</a>, Maintained by the <a href="/about/release-notes/#maintenance-team">MkDocs Team</a>.
+copyright: Copyright &copy; 2023 Maxime Mettey, maintained by Maxime Mettey.
 
 plugins:
     - search
