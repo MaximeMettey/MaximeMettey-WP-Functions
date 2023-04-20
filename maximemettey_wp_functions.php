@@ -132,7 +132,8 @@ function telLink(string $phoneNumber)
 }
 
 /**
- * Automatically generate the link title for an ACF link field.
+ * Only useful for the Advanced Custom Fields plugin users
+ * Automatically generates the link title for an ACF link field.
  * By order of priority :
  *      1. Get the link title in the link array
  *      2. Get the title of the post by URL
@@ -141,7 +142,7 @@ function telLink(string $phoneNumber)
  * @param Array $link               ACF Link field array
  * @return string                   Formatted link title
  */
-function get_link_title($link)
+function get_link_title_from_acf_array($link)
 {
     $smtitle = $link['lien']['title'];
     if (empty($smtitle)) {
@@ -156,14 +157,14 @@ function get_link_title($link)
 }
 
 /**
- * Automatically generate link tag for an ACF link field
+ * Automatically generates a link tag for an ACF link field
  * 
  * @since 1.0.0
  * @param Array $link               ACF Link field array
  * @param string $class             Class to apply to the tag
  * @return string                   HTML link tag
  */
-function generate_link($link, $class = '')
+function generate_link_tag_from_acf_array($link, $class = '')
 {
     return '
         <a
@@ -175,9 +176,3 @@ function generate_link($link, $class = '')
         </a>
     ';
 }
-
-/**
- * ----------------------------------------------
- * --- END OF USEFUL AND TIME SAVING SNIPPETS ---
- * ----------------------------------------------
- */

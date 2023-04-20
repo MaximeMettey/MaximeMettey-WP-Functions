@@ -1,7 +1,6 @@
 # Welcome to Maxime Mettey - WP Functions & Snippets
 
-Author: Maxime Mettey <contact@maxime-mettey.com>   
-URL : [https://www.maxime-mettey.com](https://www.maxime-mettey.com)
+Author: Maxime Mettey <contact@maxime-mettey.com>
 
 ## Warning and disclaimer
 
@@ -132,8 +131,41 @@ function telLink(string $phoneNumber)
 
 **Snippet n°4 :**  
 
-Only useful for the Advanced Custom Fields plugin users
- * Automatically generate the link title for an ACF link field.
- * By order of priority :
- *      1. Get the link title in the link array
- *      2. Get the title of the post by URL
+**Only useful for the Advanced Custom Fields plugin users.** Automatically generates the link title for an ACF link field. By order of priority :
+1. Get the link title in the link array
+2. Get the post's by URL
+
+```
+function get_link_title_from_acf_array($link)
+{
+    $smtitle = $link['lien']['title'];
+    if (empty($smtitle)) {
+        $urlpost = url_to_postid($link['lien']['url']);
+
+        if ($urlpost > 0) {
+            $smtitle = get_the_title($urlpost);
+        }
+    }
+
+    return $smtitle;
+}
+```
+
+**Snippet n°5 :**  
+
+**Only useful for the Advanced Custom Fields plugin users.** Automatically generates a link tag for an ACF link field.
+
+```
+function generate_link_tag_from_acf_array($link, $class = '')
+{
+    return '
+        <a
+            href="' . $link['lien']['url'] . '"
+            target="' . $link['lien']['target'] . '"
+            class="' . $class . '"
+        >
+            ' . get_link_title($link) . '
+        </a>
+    ';
+}
+```
