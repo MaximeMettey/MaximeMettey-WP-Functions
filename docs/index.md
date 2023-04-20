@@ -35,7 +35,7 @@ function no_wordpress_errors_on_login()
 add_filter('login_errors', 'no_wordpress_errors_on_login');
 ```
 
-Purpose : Disable login error messages to prevent hackers from finding informations using brute-force attacks on the login page.
+Disable login error messages to prevent hackers from finding informations using brute-force attacks on the login page.
 
 ---
 
@@ -58,13 +58,9 @@ if ($user_ID) {
     }
 }
 ```
-
-Purpose : Automatically reject suspicious requests.
+: Automatically reject suspicious requests.
     
-3. Disable XML RPC protocol
+```
+add_filter('xmlrpc_enabled', '__return_false');
+```
 
-    If not used, it is more safe to disable XML RPC.
-
-4. Hide edit post link
-
-    The edit post link is usually breaking your front design when you are logged in.
