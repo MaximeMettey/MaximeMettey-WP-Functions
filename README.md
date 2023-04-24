@@ -11,7 +11,7 @@ You may need to adjust it to your needs, maybe using some parts of this code onl
 
 ## License
 
-GNU GPL
+This project is licensed under the GNU General Public License v3.0 - see the LICENSE.txt file for details.
 
 ## Install
 
